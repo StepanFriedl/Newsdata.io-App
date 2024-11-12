@@ -27,7 +27,7 @@ fun ConfirmationButton(
         colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent)
     ) {
         Text(
-            text = "Go Home Home",
+            text = title,
             modifier = Modifier
                 .background(
                     LighterForestGreen,

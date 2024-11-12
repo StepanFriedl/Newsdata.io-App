@@ -67,7 +67,7 @@ fun LoginScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(5.dp))
 
-        ConfirmationButton(title = "Go Home") {
+        ConfirmationButton(title = "Log in") {
             coroutineScope.launch {
                 viewModel.performLogin {
                     navController.navigate("Home")
