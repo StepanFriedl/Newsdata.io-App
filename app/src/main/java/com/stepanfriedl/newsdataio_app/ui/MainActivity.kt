@@ -18,9 +18,14 @@ import androidx.navigation.compose.rememberNavController
 import com.stepanfriedl.newsdataio_app.ui.details.DetailsScreen
 import com.stepanfriedl.newsdataio_app.ui.home.HomeScreen
 import com.stepanfriedl.newsdataio_app.ui.login.LoginScreen
+import com.stepanfriedl.newsdataio_app.ui.login.LoginViewModel
 import com.stepanfriedl.newsdataio_app.ui.theme.Newsdataio_AppTheme
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

@@ -1,10 +1,45 @@
 package com.stepanfriedl.newsdataio_app.di
 
+import android.content.Context
+import androidx.datastore.preferences.preferencesDataStore
+import com.stepanfriedl.newsdataio_app.data.repository.AuthenticationRepository
+import com.stepanfriedl.newsdataio_app.data.repository.AuthenticationRepositoryImpl
+import com.stepanfriedl.newsdataio_app.data.repository.MainRepository
+import com.stepanfriedl.newsdataio_app.data.repository.MainRepositoryImpl
+import com.stepanfriedl.newsdataio_app.ui.home.HomeViewModel
+import com.stepanfriedl.newsdataio_app.ui.login.LoginViewModel
+import com.stepanfriedl.newsdataio_app.utils.TokenManager
+import com.stepanfriedl.newsdataio_app.utils.TokenManagerImpl
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
-import retrofit2.Retrofit
+
+val Context.dataStore by preferencesDataStore(name = "user_prefs")
 
 val appModule = module {
 
-    single {  }
+    single<MainRepository> {
+        MainRepositoryImpl()
+    }
 
+    single<AuthenticationRepository> {
+        AuthenticationRepositoryImpl(get())
+    }
+
+    single {
+        androidContext().dataStore
+    }
+
+    single {
+        TokenManagerImpl(get())
+    }
+
+    viewModel {
+        LoginViewModel(get(),get())
+    }
+
+    viewModel {
+        HomeViewModel(get())
+    }
 }
+
