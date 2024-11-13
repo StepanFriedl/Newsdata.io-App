@@ -6,6 +6,7 @@ import com.stepanfriedl.newsdataio_app.data.repository.AuthenticationRepository
 import com.stepanfriedl.newsdataio_app.data.repository.AuthenticationRepositoryImpl
 import com.stepanfriedl.newsdataio_app.data.repository.NewsRepository
 import com.stepanfriedl.newsdataio_app.data.repository.NewsRepositoryImpl
+import com.stepanfriedl.newsdataio_app.ui.details.DetailsViewModel
 import com.stepanfriedl.newsdataio_app.ui.home.HomeViewModel
 import com.stepanfriedl.newsdataio_app.ui.login.LoginViewModel
 import com.stepanfriedl.newsdataio_app.utils.TokenManager
@@ -40,6 +41,10 @@ val appModule = module {
 
     viewModel {
         HomeViewModel(get(), get())
+    }
+
+    viewModel {
+        DetailsViewModel(get())
     }
 }
 

@@ -12,9 +12,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.stepanfriedl.newsdataio_app.ui.details.DetailsScreen
 import com.stepanfriedl.newsdataio_app.ui.home.HomeScreen
 import com.stepanfriedl.newsdataio_app.ui.landing.LandingScreen
@@ -58,8 +60,18 @@ fun RootView() {
             HomeScreen(navController)
         }
 
-        composable(route = "Details") {
-            DetailsScreen(navController)
+        composable(
+            route = "Details/{articleId}",
+            arguments = listOf(navArgument("articleId") { type = NavType.StringType })
+        ) { navBackStackEntry ->
+            val articleId = navBackStackEntry.arguments?.getString("articleId")
+
+            articleId?.let {
+                DetailsScreen(
+                    navController = navController,
+                    articleId = it
+                )
+            }
         }
 
     }
