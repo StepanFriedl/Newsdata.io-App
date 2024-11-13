@@ -1,3 +1,0 @@
-package com.stepanfriedl.newsdataio_app.data.repository
-
-interface MainRepository
