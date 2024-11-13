@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
@@ -22,6 +20,7 @@ import com.stepanfriedl.newsdataio_app.R
 import com.stepanfriedl.newsdataio_app.ui.components.ConfirmationButton
 import com.stepanfriedl.newsdataio_app.ui.components.ErrorTextLabel
 import com.stepanfriedl.newsdataio_app.ui.components.LoginTextInput
+import com.stepanfriedl.newsdataio_app.ui.home.HomeViewModel
 import kotlinx.coroutines.launch
 
 
@@ -29,6 +28,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun LoginScreen(navController: NavController) {
     val viewModel = koinViewModel<LoginViewModel>()
+    val homeViewMode = koinViewModel<HomeViewModel>()
     val coroutineScope = rememberCoroutineScope()
 
     LaunchedEffect(Unit) {

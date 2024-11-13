@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.datastore.preferences.preferencesDataStore
 import com.stepanfriedl.newsdataio_app.data.repository.AuthenticationRepository
 import com.stepanfriedl.newsdataio_app.data.repository.AuthenticationRepositoryImpl
-import com.stepanfriedl.newsdataio_app.data.repository.MainRepository
-import com.stepanfriedl.newsdataio_app.data.repository.MainRepositoryImpl
+import com.stepanfriedl.newsdataio_app.data.repository.NewsRepository
+import com.stepanfriedl.newsdataio_app.data.repository.NewsRepositoryImpl
 import com.stepanfriedl.newsdataio_app.ui.home.HomeViewModel
 import com.stepanfriedl.newsdataio_app.ui.login.LoginViewModel
 import com.stepanfriedl.newsdataio_app.utils.TokenManager
@@ -18,8 +18,8 @@ val Context.dataStore by preferencesDataStore(name = "user_prefs")
 
 val appModule = module {
 
-    single<MainRepository> {
-        MainRepositoryImpl()
+    single<NewsRepository> {
+        NewsRepositoryImpl(get())
     }
 
     single<AuthenticationRepository> {
@@ -35,11 +35,11 @@ val appModule = module {
     }
 
     viewModel {
-        LoginViewModel(get(),get())
+        LoginViewModel(get())
     }
 
     viewModel {
-        HomeViewModel(get())
+        HomeViewModel(get(), get())
     }
 }
 

@@ -2,6 +2,7 @@ package com.stepanfriedl.newsdataio_app.data.repository
 
 import com.stepanfriedl.newsdataio_app.utils.AuthConstants
 import com.stepanfriedl.newsdataio_app.utils.TokenManagerImpl
+import kotlinx.coroutines.flow.first
 
 class AuthenticationRepositoryImpl(
     private val tokenManager: TokenManagerImpl
@@ -28,4 +29,6 @@ class AuthenticationRepositoryImpl(
     override suspend fun hasTokenStored(): Boolean =
         tokenManager.hasTokenStored()
 
+    override suspend fun getToken(): String? =
+        tokenManager.authToken?.first()
 }

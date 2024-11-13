@@ -13,4 +13,6 @@ interface AuthenticationRepository {
     )
 
     suspend fun hasTokenStored(): Boolean
+
+    suspend fun getToken(): String?
 }
