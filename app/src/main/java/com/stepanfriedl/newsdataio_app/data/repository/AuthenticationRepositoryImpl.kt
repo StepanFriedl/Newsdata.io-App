@@ -31,4 +31,5 @@ class AuthenticationRepositoryImpl(
 
     override suspend fun getToken(): String? =
         tokenManager.authToken?.first()
+
 }

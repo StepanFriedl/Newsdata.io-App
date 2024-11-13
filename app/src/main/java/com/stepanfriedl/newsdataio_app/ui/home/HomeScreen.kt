@@ -10,17 +10,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.SegmentedButtonDefaults.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -35,12 +30,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.stepanfriedl.newsdataio_app.data.model.Article
-import com.stepanfriedl.newsdataio_app.ui.login.LoginViewModel
-import com.stepanfriedl.newsdataio_app.utils.TokenManager
 import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
-import org.koin.compose.getKoin
 import com.stepanfriedl.newsdataio_app.R
 import com.stepanfriedl.newsdataio_app.ui.components.ArticleRow
 import com.stepanfriedl.newsdataio_app.ui.theme.ErrorRed
@@ -61,10 +52,8 @@ fun HomeScreen(navController: NavController) {
         snapshotFlow { scrollState.value to scrollState.maxValue }
             .collect { (scrollPosition, maxValue) ->
                 if (scrollPosition == maxValue && maxValue != 0) {
-                    println("Fetch A")
                     viewModel.getNextPageArticles()
                 } else if (maxValue == 0) {
-                    println("Fetch B")
                     viewModel.getNextPageArticles()
                 }
             }
@@ -127,10 +116,8 @@ fun HomeScreen(navController: NavController) {
                         ArticleRow(
                             article = article
                         ) {
-
+                            navController.navigate("Details/${article.article_id}")
                         }
-//                        Text(text = article.title)
-//                        Spacer(modifier = Modifier.height(10.dp))
                     }
                 }
             }

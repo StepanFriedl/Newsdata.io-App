@@ -92,4 +92,7 @@ class NewsRepositoryImpl(
         })
     }
 
+    override fun getArticle(id: String): Article? =
+        articles?.firstOrNull { it.article_id == id }
+
 }
