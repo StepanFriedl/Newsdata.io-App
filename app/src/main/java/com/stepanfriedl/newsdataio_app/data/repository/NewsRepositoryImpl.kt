@@ -56,7 +56,6 @@ class NewsRepositoryImpl(
         )
     }
 
-
     private suspend fun fetchNews(
         onSuccess: (List<Article>?) -> Unit,
         onFailure: () -> Unit,
@@ -67,7 +66,6 @@ class NewsRepositoryImpl(
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MyApi::class.java)
-
 
         api.getNews(
             apiKey = authenticationRepository.getToken() ?: "",
@@ -91,7 +89,6 @@ class NewsRepositoryImpl(
             ) {
                 onFailure()
             }
-
         })
     }
 
