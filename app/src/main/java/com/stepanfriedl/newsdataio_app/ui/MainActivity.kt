@@ -17,6 +17,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.stepanfriedl.newsdataio_app.ui.details.DetailsScreen
 import com.stepanfriedl.newsdataio_app.ui.home.HomeScreen
+import com.stepanfriedl.newsdataio_app.ui.landing.LandingScreen
 import com.stepanfriedl.newsdataio_app.ui.login.LoginScreen
 import com.stepanfriedl.newsdataio_app.ui.login.LoginViewModel
 import com.stepanfriedl.newsdataio_app.ui.theme.Newsdataio_AppTheme
@@ -43,8 +44,12 @@ fun RootView() {
 
     NavHost(
         navController = navController,
-        startDestination = "Login"
+        startDestination = "Landing"
     ) {
+        composable(route = "Landing") {
+            LandingScreen(navController)
+        }
+
         composable(route = "Login") {
             LoginScreen(navController)
         }
