@@ -31,11 +31,6 @@ fun LoginScreen(navController: NavController) {
     val homeViewMode = koinViewModel<HomeViewModel>()
     val coroutineScope = rememberCoroutineScope()
 
-    LaunchedEffect(Unit) {
-        viewModel.checkToken {
-            navController.navigate("Home")
-        }
-    }
     Column(
         modifier = Modifier
             .fillMaxSize()

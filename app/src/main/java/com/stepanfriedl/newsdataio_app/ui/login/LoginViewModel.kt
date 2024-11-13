@@ -30,10 +30,13 @@ class LoginViewModel(
     }
 
     suspend fun checkToken(
-        tokenAvailableAction: () -> Unit
+        tokenAvailableAction: () -> Unit,
+        tokenNotAvailableAction: () -> Unit
     ) {
         if (authRepository.hasTokenStored()) {
             tokenAvailableAction()
+        } else {
+            tokenNotAvailableAction()
         }
     }
 }
