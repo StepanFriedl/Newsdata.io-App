@@ -41,7 +41,7 @@ fun LoginScreen(navController: NavController) {
             .fillMaxSize()
             .paint(
                 painter = painterResource(id = R.drawable.background_login),
-                contentScale = ContentScale.FillBounds
+                contentScale = ContentScale.Crop
             ),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
