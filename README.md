@@ -38,14 +38,14 @@ This project is built using **Kotlin** and **Jetpack Compose**. The following li
 
 ## Usage
 
-	1.	Launch the app.
-	2.	Log in using the credentials:
-	    •	Username: elonga@elonga.com
-    	•	Password: ElongaTheBest
-	3.	Once logged in, you’ll see the home screen displaying the latest news. Scroll to the end of the list to load more news.
-	4.	Click on any news item to view details, where you can:
-    	•	Open the article in your default browser.
-	    •	Share the article link using Android’s share functionality.
+1.	Launch the app.
+2.	Log in using the credentials:   
+•	Username: elonga@elonga.com    
+•	Password: ElongaTheBest
+3.	Once logged in, you’ll see the home screen displaying the latest news. Scroll to the end of the list to load more news.
+4.	Click on any news item to view details, where you can:   
+•	Open the article in your default browser.   
+•	Share the article link using Android’s share functionality.
 
 ## Project Structure
 
